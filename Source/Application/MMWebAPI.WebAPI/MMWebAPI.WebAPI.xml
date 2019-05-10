@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MMWebAPI.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionController.InsertFinancialTransactionAsync(MMWebAPI.Application.InOut.FinancialTransaction.FinancialTransactionRequest)">
+            <summary>
+            Inserts a Financial Transactions into a group.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionController.DeleteAsync(System.Int32)">
+            <summary>
+            Remove a Financial Transactions.
+            </summary>
+            <param name="transactionsId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionController.GetAllByGroup(System.Int32)">
+            <summary>
+            Retrieve all transactions for a specific group
+            </summary>
+            <param name="groupId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionController.GetById(System.Int32)">
+            <summary>
+            Retrieves a Transaction by Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionController.UpdateAsync(System.Int32,MMWebAPI.Application.InOut.FinancialTransaction.FinancialTransactionRequest)">
+            <summary>
+            Update a transaction
+            </summary>
+            <param name="transactionId"></param>
+            <param name="transaction"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMWebAPI.WebAPI.Controllers.FinancialTransactionGroupController">
+            <summary>
+            Controller For Groups Of Transacations
+            </summary>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionGroupController.#ctor(MMWebAPI.Application.Interfaces.IFinancialTransactionGroupApplicationService)">
+            <summary>
+            Constructor with gets the application service. 
+            </summary>
+            <param name="appService"></param>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionGroupController.AddAsync(MMWebAPI.Application.InOut.FinancialTransactionGroup.FinancialTransactionGroupRequest)">
+            <summary>
+            Inserts a new Group of Financial Transactions.
+            </summary>
+            <param name="group"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionGroupController.DeleteAsync(System.Int32)">
+            <summary>
+            Remove a Group of Financial Transactions.
+            </summary>
+            <param name="groupId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionGroupController.GetAll">
+            <summary>
+            Retrieves a List of The Groups and its Transactions
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionGroupController.GetAllSimple">
+            <summary>
+            Retrieves a List of The Groups without its Transactions
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionGroupController.GetById(System.Int32)">
+            <summary>
+            Retrieves a Group of Transaction by Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Controllers.FinancialTransactionGroupController.UpdateAsync(System.Int32,MMWebAPI.Application.InOut.FinancialTransactionGroup.FinancialTransactionGroupRequest)">
+            <summary>
+            Update a transaction Group
+            </summary>
+            <param name="groupId"></param>
+            <param name="transactionGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMWebAPI.WebAPI.Middelware.ErrorHandlerMiddleware">
+            <summary>
+            Middleware para interceptar exceções
+            </summary>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Middelware.ErrorHandlerMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext,System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Handler para manipular exceções não esperadas
+            </summary>
+            <param name="context"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MMWebAPI.WebAPI.Middelware.ErrorObject">
+            <summary>
+            Objeto de padrão de responses com erro
+            </summary>
+        </member>
+        <member name="P:MMWebAPI.WebAPI.Middelware.ErrorObject.Code">
+            <summary>
+            Código da response
+            </summary>
+        </member>
+        <member name="P:MMWebAPI.WebAPI.Middelware.ErrorObject.Message">
+            <summary>
+            Message da response
+            </summary>
+        </member>
+        <member name="P:MMWebAPI.WebAPI.Middelware.ErrorObject.Target">
+            <summary>
+            Target da response
+            </summary>
+        </member>
+        <member name="T:MMWebAPI.WebAPI.Middelware.ExceptionResponse">
+            <summary>
+            Response 
+            </summary>
+        </member>
+        <member name="M:MMWebAPI.WebAPI.Middelware.ExceptionResponse.#ctor(System.Exception)">
+            <summary>
+            Construtor recebendo exception para tratar
+            </summary>
+            <param name="exception"></param>
+        </member>
+        <member name="P:MMWebAPI.WebAPI.Middelware.ExceptionResponse.Error">
+            <summary>
+            Response error
+            </summary>
+        </member>
+        <member name="P:MMWebAPI.WebAPI.Middelware.ExceptionResponse.InnerError">
+            <summary>
+            Response inner error
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -90,6 +90,7 @@ namespace MMWebAPI.WebAPI
             app.Use((context, next) => errorHandlerMiddlewareInstance.InvokeAsync(context, next));
             app.UseStaticFiles();
             app.UseCors("CorsPolicy");
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

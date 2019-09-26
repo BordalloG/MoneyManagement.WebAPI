@@ -33,7 +33,7 @@ namespace MMWebAPI.WebAPI.Controllers
         /// </summary>
         /// <param name="group"></param>
         /// <returns></returns>
-        [CustomAuthorize.ClaimsAuthorizeAttribute("Groups","Adicionar")]
+        [ClaimsAuthorizeAttribute("Groups","Adicionar")]
         [HttpPost]
         [ProducesResponseType(201)]
         [ProducesResponseType(500)]
@@ -48,7 +48,7 @@ namespace MMWebAPI.WebAPI.Controllers
         /// </summary>
         /// <param name="groupId"></param>
         /// <returns></returns>
-        [CustomAuthorize.ClaimsAuthorizeAttribute("Groups", "Remover")]
+        [ClaimsAuthorizeAttribute("Groups", "Remover")]
         [Route("{groupId}")]
         [HttpDelete]
         [ProducesResponseType(200)]
@@ -63,7 +63,7 @@ namespace MMWebAPI.WebAPI.Controllers
         /// Retrieves a List of The Groups and its Transactions
         /// </summary>
         /// <returns></returns>
-        [CustomAuthorize.ClaimsAuthorizeAttribute("Groups", "Selecionar")]
+        [ClaimsAuthorizeAttribute("Groups", "Selecionar")]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
         [Route("GetAll")]
@@ -79,7 +79,7 @@ namespace MMWebAPI.WebAPI.Controllers
         /// Retrieves a List of The Groups without its Transactions
         /// </summary>
         /// <returns></returns>
-        [CustomAuthorize.ClaimsAuthorizeAttribute("Groups", "Selecionar")]
+        [ClaimsAuthorizeAttribute("Groups", "Selecionar")]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
         [Route("GetAllSimple")]
@@ -95,7 +95,7 @@ namespace MMWebAPI.WebAPI.Controllers
         /// Retrieves a Group of Transaction by Id
         /// </summary>
         /// <returns></returns>
-        [CustomAuthorize.ClaimsAuthorizeAttribute("Groups", "Selecionar")]
+        [ClaimsAuthorizeAttribute("Groups", "Selecionar")]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
         [Route("{entityId}")]
@@ -112,7 +112,7 @@ namespace MMWebAPI.WebAPI.Controllers
         /// <param name="groupId"></param>
         /// <param name="transactionGroup"></param>
         /// <returns></returns>
-        [CustomAuthorize.ClaimsAuthorizeAttribute("Groups", "Atualizar")]
+        [ClaimsAuthorizeAttribute("Groups", "Atualizar")]
         [Route("{groupId}")]
         [HttpPut]
         [ProducesResponseType(200)]

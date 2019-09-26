@@ -6,6 +6,7 @@ using MMWebAPI.Application.InOut.User;
 using MMWebAPI.Application.TokenConfiguration;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,7 +67,7 @@ namespace MMWebAPI.WebAPI.Controllers
         }
 
 
-        private async Task<string> GerarJwt(string email)
+        private async Task<LoginResponse> GerarJwt(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
             var claims = await _userManager.GetClaimsAsync(user);
@@ -97,7 +98,25 @@ namespace MMWebAPI.WebAPI.Controllers
                 Subject = identityClaims,
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             });
-            return tokenHandler.WriteToken(token);
+            var encodeToken =  tokenHandler.WriteToken(token);
+
+            var response = new LoginResponse()
+            {
+                AccessToken = encodeToken,
+                ExpiresIn =  TimeSpan.FromHours(_appSettings.ExpiracaoHoras).TotalSeconds,
+                UserToken = new UserToken()
+                {
+                    Id = user.Id,
+
+                    Email = user.Email,
+                    Claims = claims.Select(x=> new ClaimResponse()
+                    {
+                        Type = x.Type,
+                        Value = x.Value
+                    })
+                }
+            };
+            return response;
         }
 
         private static long ToUnixEpochDate(DateTime date)
